@@ -13,6 +13,7 @@ const generateReadme = (responses) =>
 4.  [Contibution](#contribution)
 5.  [Test](#test)
 6.  [Questions](#questions)
+7.  [License](#license)
         
 ## [Description](#description)
     ${responses.description}
@@ -37,7 +38,11 @@ const generateReadme = (responses) =>
     ${responses.github}
     
     or you may also send me an email at: 
-    ${responses.email}`;
+    ${responses.email}
+
+## [license](#license)
+    This application is licensed under: 
+    ${responses.license}`;
 
 inquirer
   .prompt([
