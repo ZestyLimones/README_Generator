@@ -104,8 +104,8 @@ function generateMarkdown(data) {
     or you may also send me an email at: ${data.email}
 
 ## [license](#license)
-    This application is licensed under: ${data.license}`;
-    ${licenseSection}
+    This application is licensed under: ${data.license}
+    ${licenseSection}`;
 }
 
 module.exports = generateMarkdown;
