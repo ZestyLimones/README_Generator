@@ -1,10 +1,61 @@
 // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
-function renderLicenseBadge(license) {}
+function renderLicenseBadge(license) {
+  let licenseBadge = '';
+  switch (license) {
+    case 'Academic.Free.License':
+      licenseBadge =
+        'https://img.shields.io/badge/license-Academic.Free.License-blue';
+      break;
+    case 'Boost.Software.License':
+      licenseBadge =
+        'https://img.shields.io/badge/license-Boost.Software.License-blue';
+      break;
+    case 'ISC':
+      licenseBadge = 'https://img.shields.io/badge/license-ISC-blue';
+      break;
+    case 'MIT':
+      licenseBadge = 'https://img.shields.io/badge/license-MIT-blue';
+      break;
+    case 'PostgreSQL.License':
+      licenseBadge =
+        'https://img.shields.io/badge/license-PostgreSQL.License-blue';
+      break;
+    default:
+      licenseBadge = '';
+      break;
+  }
+  return licenseBadge;
+}
 
 // TODO: Create a function that returns the license link
 // If there is no license, return an empty string
-function renderLicenseLink(license) {}
+function renderLicenseLink(license) {
+  let licenseLink = '';
+  switch (license) {
+    case 'Academic.Free.License':
+      licenseBadge =
+        'https://img.shields.io/badge/license-Academic.Free.License-blue';
+      break;
+    case 'Boost.Software.License':
+      licenseBadge =
+        'https://img.shields.io/badge/license-Boost.Software.License-blue';
+      break;
+    case 'ISC':
+      licenseBadge = 'https://img.shields.io/badge/license-ISC-blue';
+      break;
+    case 'MIT':
+      licenseBadge = 'https://img.shields.io/badge/license-MIT-blue';
+      break;
+    case 'PostgreSQL.License':
+      licenseBadge =
+        'https://img.shields.io/badge/license-PostgreSQL.License-blue';
+      break;
+    default:
+      licenseBadge = '';
+      break;
+  }
+}
 
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
