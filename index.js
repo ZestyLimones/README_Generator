@@ -1,5 +1,6 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
+const generateMarkdown = require('./utils/generateMarkdown.js');
 
 const generateReadme = (responses) =>
   `# ${responses.title}
@@ -98,7 +99,7 @@ inquirer
   .then((responses) => {
     const readmeContent = generateReadme(responses);
 
-    fs.writeFile('./Demo/README.md', readmeContent, (err) => {
+    fs.writeFile('./utils/Demo/README.md', readmeContent, (err) => {
       err
         ? console.log(err)
         : console.log('Successfully created a README with user input!');
