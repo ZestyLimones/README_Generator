@@ -34,25 +34,22 @@ function renderLicenseLink(license) {
   let licenseLink = '';
   switch (license) {
     case 'Academic.Free.License':
-      licenseBadge =
-        'https://img.shields.io/badge/license-Academic.Free.License-blue';
+      licenseLink = 'https://opensource.org/licenses/AFL-3.0';
       break;
     case 'Boost.Software.License':
-      licenseBadge =
-        'https://img.shields.io/badge/license-Boost.Software.License-blue';
+      licenseLink = 'https://www.boost.org/users/license.html';
       break;
     case 'ISC':
-      licenseBadge = 'https://img.shields.io/badge/license-ISC-blue';
+      licenseLink = 'https://opensource.org/licenses/ISC';
       break;
     case 'MIT':
-      licenseBadge = 'https://img.shields.io/badge/license-MIT-blue';
+      licenseLink = 'https://opensource.org/licenses/MIT';
       break;
     case 'PostgreSQL.License':
-      licenseBadge =
-        'https://img.shields.io/badge/license-PostgreSQL.License-blue';
+      licenseLink = 'https://www.postgresql.org/about/licence/';
       break;
     default:
-      licenseBadge = '';
+      licenseLink = '';
       break;
   }
 }
