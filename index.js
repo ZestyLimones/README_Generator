@@ -8,7 +8,7 @@ const generateReadme = (responses) =>
 
 ## Table of Contents
 1.  [Description](#description)
-2.  [Installation](#insatllation)
+2.  [Installation](#installation)
 3.  [Usage](#usage)
 4.  [Contibution](#contribution)
 5.  [Test](#test)
@@ -19,30 +19,25 @@ const generateReadme = (responses) =>
     ${responses.description}
 
 ## Installation (#installation)
-<a name='insatllation'></a>
     ${responses.installation}
 
 ## [Usage](#usage)
     ${responses.usage}
 
 ## [Contribution](#contribution)
-    The individuals that contributed to this project are: 
-    ${responses.contributors}
+    If others would like to contribute to this project they may ${responses.contribute} the Repo.
 
 ## [Test](#test)
     The testing used for this application
-    ${responses.test}
+     ${responses.test}
 
 ## [Questions](questions)
-    If you have any questions, feel free to reach out to me via GitHub:
-    ${responses.github}
+    If you have any questions, feel free to reach out to me via GitHub: ${responses.github}
     
-    or you may also send me an email at: 
-    ${responses.email}
+    or you may also send me an email at: ${responses.email}
 
 ## [license](#license)
-    This application is licensed under: 
-    ${responses.license}`;
+    This application is licensed under: ${responses.license}`;
 
 inquirer
   .prompt([
@@ -68,13 +63,14 @@ inquirer
     },
     {
       type: 'input',
-      message: 'Who all contributed to this project?',
-      name: 'contributors',
+      message: 'How may others contribute to this project',
+      name: 'contribute',
     },
     {
       type: 'input',
-      message: 'What are the test instructions?',
+      message: 'What command should be used to run tests?',
       name: 'test',
+      default: 'npm test',
     },
     {
       type: 'list',
