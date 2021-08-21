@@ -1,56 +1,43 @@
-// GIVEN a command-line application that accepts user input
-// WHEN I am prompted for information about my application repository
-// THEN a high-quality, professional README.md is generated with the title of my project and sections entitled Description, Table of Contents, Installation, Usage, License, Contributing, Tests, and Questions
-// WHEN I enter my project title
-// THEN this is displayed as the title of the README
-// WHEN I enter a description, installation instructions, usage information, contribution guidelines, and test instructions
-// THEN this information is added to the sections of the README entitled Description, Installation, Usage, Contributing, and Tests
-// WHEN I choose a license for my application from a list of options
-// THEN a badge for that license is added near the top of the README and a notice is added to the section of the README entitled License that explains which license the application is covered under
-// WHEN I enter my GitHub username
-// THEN this is added to the section of the README entitled Questions, with a link to my GitHub profile
-// WHEN I enter my email address
-// THEN this is added to the section of the README entitled Questions, with instructions on how to reach me with additional questions
-// WHEN I click on the links in the Table of Contents
-// THEN I am taken to the corresponding section of the README
-
 const inquirer = require('inquirer');
 const fs = require('fs');
 
 const generateReadme = (responses) =>
   `# ${responses.title}
-https://img.shields.io/static/v1?label=license&message=MIT&color=blue
 
+  ![Github license](https://img.shields.io/badge/license-${responses.license}-blue)
 
 ## Table of Contents
 1.  [Description](#description)
 2.  [Installation](#insatllation)
 3.  [Usage](#usage)
-4.  [Contibution](#contributions)
+4.  [Contibution](#contribution)
 5.  [Test](#test)
 6.  [Questions](#questions)
         
- ## [Description](#description)
-    ${responses.desription}
+## [Description](#description)
+    ${responses.description}
 
-  ## [Documenation](#documentation)
-  <a name='documentation'></a>
-  added in some info for the documenation piece 
+## Installation (#installation)
+<a name='insatllation'></a>
+    ${responses.installation}
 
-  ### Installation
-  <a name='insatllation'></a>
+## [Usage](#usage)
+    ${responses.usage}
 
+## [Contribution](#contribution)
+    The individuals that contributed to this project are: 
+    ${responses.contributors}
 
+## [Test](#test)
+    The testing used for this application
+    ${responses.test}
 
-
-
-
-
-
-
-
-
-  here is the end`;
+## [Questions](questions)
+    If you have any questions, feel free to reach out to me via GitHub:
+    ${responses.github}
+    
+    or you may also send me an email at: 
+    ${responses.email}`;
 
 inquirer
   .prompt([
@@ -67,40 +54,39 @@ inquirer
     {
       type: 'input',
       message: 'What are the instation instructions?',
-      name: 'installation-information',
+      name: 'installation',
     },
     {
       type: 'input',
       message: 'What is the purpose of this application?',
-      name: 'usage-information',
+      name: 'usage',
     },
     {
       type: 'input',
-      message: 'What are the contribution guidelines?',
-      name: 'contribution-guidelines',
+      message: 'Who all contributed to this project?',
+      name: 'contributors',
     },
     {
       type: 'input',
       message: 'What are the test instructions?',
-      name: 'test-instructions',
+      name: 'test',
     },
     {
       type: 'list',
       message: 'What type of license would you like to use?',
       choices: [
-        'Academic Free License v3.0',
-        'Boost Software License 1.0',
+        'Academic.Free.License',
+        'Boost.Software.License',
         'ISC',
         'MIT',
-        'PostgreSQL License',
-        'none',
+        'PostgreSQL.License',
       ],
       name: 'license',
     },
     {
       type: 'input',
       message: 'What is your GitHub username?',
-      name: 'github-username',
+      name: 'github',
     },
     {
       type: 'input',
@@ -109,10 +95,9 @@ inquirer
     },
   ])
   .then((responses) => {
-    console.log(responses);
     const readmeContent = generateReadme(responses);
 
-    fs.writeFile('README.md', readmeContent, (err) => {
+    fs.writeFile('./Demo/README.md', readmeContent, (err) => {
       err
         ? console.log(err)
         : console.log('Successfully created a README with user input!');
