@@ -1,29 +1,34 @@
 // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
 function renderLicenseBadge(license) {
-  let badge = '';
-  switch (license) {
-    case 'Academic.Free.License':
-      badge = 'https://img.shields.io/badge/license-Academic.Free.License-blue';
-      break;
-    case 'Boost.Software.License':
-      badge =
-        'https://img.shields.io/badge/license-Boost.Software.License-blue';
-      break;
-    case 'ISC':
-      badge = 'https://img.shields.io/badge/license-ISC-blue';
-      break;
-    case 'MIT':
-      badge = 'https://img.shields.io/badge/license-MIT-blue';
-      break;
-    case 'PostgreSQL.License':
-      badge = 'https://img.shields.io/badge/license-PostgreSQL.License-blue';
-      break;
-    default:
-      badge = '';
-      break;
+  if (license !== 'None') {
+    return `![GitHub License](https://img.shields.io/badge/license-${license}-blue)`;
   }
-  return badge;
+  return '';
+
+  // let badge = '';
+  // switch (license) {
+  //   case 'Academic.Free.License':
+  //     badge = 'https://img.shields.io/badge/license-Academic.Free.License-blue';
+  //     break;
+  //   case 'Boost.Software.License':
+  //     badge =
+  //       'https://img.shields.io/badge/license-Boost.Software.License-blue';
+  //     break;
+  //   case 'ISC':
+  //     badge = 'https://img.shields.io/badge/license-ISC-blue';
+  //     break;
+  //   case 'MIT':
+  //     badge = 'https://img.shields.io/badge/license-MIT-blue';
+  //     break;
+  //   case 'PostgreSQL.License':
+  //     badge = 'https://img.shields.io/badge/license-PostgreSQL.License-blue';
+  //     break;
+  //   default:
+  //     badge = '';
+  //     break;
+  // }
+  // return badge;
 }
 
 // TODO: Create a function that returns the license link
@@ -51,27 +56,34 @@ function renderLicenseLink(license) {
       break;
   }
   return link;
+  return '';
 }
+
+// }
 
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
 function renderLicenseSection(license) {
-  let licenseBadge = renderLicenseBadge(license);
-  let licenseLink = renderLicenseLink(license);
-  let licenseInfo = '';
-  if (license != '') {
-    licenseInfo = `[![GitHub License](${licenseBadge})${licenseLink}]`;
+  if (license !== 'None') {
+    return `##  [License](#license)
+      This application is licensed under: ${license}
+      ${renderLicenseLink(license)}`;
+    return '';
   }
-  return licenseInfo;
+
+  // let licenseLink = renderLicenseLink(license);
+  // let licenseInfo = '';
+  // if (license != '') {
+  //   licenseInfo = `[![GitHub License](${licenseBadge})${licenseLink}]`;
+  // }
+  // return licenseInfo;
 }
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
-  let licenseSection = renderLicenseSection(data.license);
-
   return `# ${data.title}
 
-  ${licenseSection}
+  ${renderLicenseBadge(data.license)}
 
 ## Table of Contents
 1.  [Description](#description)
@@ -85,27 +97,29 @@ function generateMarkdown(data) {
 ## [Description](#description)
     ${data.description}
 
-## Installation (#installation)
+## [Installation](#installation)
     ${data.installation}
 
 ## [Usage](#usage)
     ${data.usage}
 
 ## [Contribution](#contribution)
-    If others would like to contribute to this project they may ${data.contribute} the Repo.
+    If others would like to contribute to this project they may ${
+      data.contribute
+    } the Repo.
 
 ## [Test](#test)
     The testing used for this application
      ${data.test}
 
 ## [Questions](questions)
-    If you have any questions, feel free to reach out to me via GitHub: ${data.github}
+    If you have any questions, feel free to reach out to me via GitHub: ${
+      data.github
+    }
     
     or you may also send me an email at: ${data.email}
 
-## [license](#license)
-    This application is licensed under: ${data.license}
-    ${licenseSection}`;
+${renderLicenseSection(data.license)}`;
 }
 
 module.exports = generateMarkdown;

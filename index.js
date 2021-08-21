@@ -153,6 +153,7 @@ const questions = [
       'ISC',
       'MIT',
       'PostgreSQL.License',
+      'None',
     ],
     name: 'license',
   },
