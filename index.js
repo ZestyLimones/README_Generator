@@ -17,6 +17,8 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 
+const generageReadME = (responses) => {};
+
 inquirer
   .prompt([
     {
