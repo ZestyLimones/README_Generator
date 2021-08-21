@@ -18,9 +18,36 @@ const inquirer = require('inquirer');
 const fs = require('fs');
 
 const generateReadme = (responses) =>
-  `now lets see ${responses.title}
-here is a new line
-now adding in my description: ${responses.description}`;
+  `# ${responses.title}
+
+## Table of Contents
+1.  [Description](#description)
+2.  [Installation](#insatllation)
+3.  [Usage](#usage)
+4.  [Contibution](#contributions)
+5.  [Test](#test)
+        
+ ## [Description](#description)
+    ${responses.desription}
+
+  ## [Documenation](#documentation)
+  <a name='documentation'></a>
+  added in some info for the documenation piece 
+
+  ### Installation
+  <a name='insatllation'></a>
+
+
+
+
+
+
+
+
+
+
+
+  here is the end`;
 
 inquirer
   .prompt([
@@ -34,49 +61,49 @@ inquirer
       message: 'Please describe your application.',
       name: 'description',
     },
-    // {
-    //   type: 'input',
-    //   message: 'What are the instation instructions?',
-    //   name: 'installation-information',
-    // },
-    // {
-    //   type: 'input',
-    //   message: 'What is the purpose of this application?',
-    //   name: 'usage-information',
-    // },
-    // {
-    //   type: 'input',
-    //   message: 'What are the contribution guidelines?',
-    //   name: 'contribution-guidelines',
-    // },
-    // {
-    //   type: 'input',
-    //   message: 'What are the test instructions?',
-    //   name: 'test-instructions',
-    // },
-    // {
-    //   type: 'list',
-    //   message: 'What type of license would you like to use?',
-    //   choices: [
-    //     'Academic Free License v3.0',
-    //     'Boost Software License 1.0',
-    //     'ISC',
-    //     'MIT',
-    //     'PostgreSQL License',
-    //     'none',
-    //   ],
-    //   name: 'license',
-    // },
-    // {
-    //   type: 'input',
-    //   message: 'What is your GitHub username?',
-    //   name: 'github-username',
-    // },
-    // {
-    //   type: 'input',
-    //   message: 'What is your email address?',
-    //   name: 'email',
-    // },
+    {
+      type: 'input',
+      message: 'What are the instation instructions?',
+      name: 'installation-information',
+    },
+    {
+      type: 'input',
+      message: 'What is the purpose of this application?',
+      name: 'usage-information',
+    },
+    {
+      type: 'input',
+      message: 'What are the contribution guidelines?',
+      name: 'contribution-guidelines',
+    },
+    {
+      type: 'input',
+      message: 'What are the test instructions?',
+      name: 'test-instructions',
+    },
+    {
+      type: 'list',
+      message: 'What type of license would you like to use?',
+      choices: [
+        'Academic Free License v3.0',
+        'Boost Software License 1.0',
+        'ISC',
+        'MIT',
+        'PostgreSQL License',
+        'none',
+      ],
+      name: 'license',
+    },
+    {
+      type: 'input',
+      message: 'What is your GitHub username?',
+      name: 'github-username',
+    },
+    {
+      type: 'input',
+      message: 'What is your email address?',
+      name: 'email',
+    },
   ])
   .then((responses) => {
     console.log(responses);
