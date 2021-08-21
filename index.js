@@ -19,6 +19,8 @@ const fs = require('fs');
 
 const generateReadme = (responses) =>
   `# ${responses.title}
+https://img.shields.io/static/v1?label=license&message=MIT&color=blue
+
 
 ## Table of Contents
 1.  [Description](#description)
@@ -26,6 +28,7 @@ const generateReadme = (responses) =>
 3.  [Usage](#usage)
 4.  [Contibution](#contributions)
 5.  [Test](#test)
+6.  [Questions](#questions)
         
  ## [Description](#description)
     ${responses.desription}
