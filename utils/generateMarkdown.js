@@ -1,68 +1,77 @@
 // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
 function renderLicenseBadge(license) {
-  let licenseBadge = '';
+  let badge = '';
   switch (license) {
     case 'Academic.Free.License':
-      licenseBadge =
-        'https://img.shields.io/badge/license-Academic.Free.License-blue';
+      badge = 'https://img.shields.io/badge/license-Academic.Free.License-blue';
       break;
     case 'Boost.Software.License':
-      licenseBadge =
+      badge =
         'https://img.shields.io/badge/license-Boost.Software.License-blue';
       break;
     case 'ISC':
-      licenseBadge = 'https://img.shields.io/badge/license-ISC-blue';
+      badge = 'https://img.shields.io/badge/license-ISC-blue';
       break;
     case 'MIT':
-      licenseBadge = 'https://img.shields.io/badge/license-MIT-blue';
+      badge = 'https://img.shields.io/badge/license-MIT-blue';
       break;
     case 'PostgreSQL.License':
-      licenseBadge =
-        'https://img.shields.io/badge/license-PostgreSQL.License-blue';
+      badge = 'https://img.shields.io/badge/license-PostgreSQL.License-blue';
       break;
     default:
-      licenseBadge = '';
+      badge = '';
       break;
   }
-  return licenseBadge;
+  return badge;
 }
 
 // TODO: Create a function that returns the license link
 // If there is no license, return an empty string
 function renderLicenseLink(license) {
-  let licenseLink = '';
+  let link = '';
   switch (license) {
     case 'Academic.Free.License':
-      licenseLink = 'https://opensource.org/licenses/AFL-3.0';
+      link = 'https://opensource.org/licenses/AFL-3.0';
       break;
     case 'Boost.Software.License':
-      licenseLink = 'https://www.boost.org/users/license.html';
+      link = 'https://www.boost.org/users/license.html';
       break;
     case 'ISC':
-      licenseLink = 'https://opensource.org/licenses/ISC';
+      link = 'https://opensource.org/licenses/ISC';
       break;
     case 'MIT':
-      licenseLink = 'https://opensource.org/licenses/MIT';
+      link = 'https://opensource.org/licenses/MIT';
       break;
     case 'PostgreSQL.License':
-      licenseLink = 'https://www.postgresql.org/about/licence/';
+      link = 'https://www.postgresql.org/about/licence/';
       break;
     default:
-      licenseLink = '';
+      link = '';
       break;
   }
+  return link;
 }
 
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
-function renderLicenseSection(license) {}
+function renderLicenseSection(license) {
+  let licenseBadge = renderLicenseBadge(license);
+  let licenseLink = renderLicenseLink(license);
+  let licenseInfo = '';
+  if (license != '') {
+    licenseInfo = `[![GitHub License](${licenseBadge})${licenseLink}]`;
+  }
+  return licenseInfo;
+}
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
-  return `# ${responses.title}
+  let licenseSection = renderLicenseSection(data.license);
 
-![Github license](https://img.shields.io/badge/license-${responses.license}-blue)
+  return `# ${data.title}
+
+  ${licenseSection}
 
 ## Table of Contents
 1.  [Description](#description)
@@ -74,28 +83,29 @@ function generateMarkdown(data) {
 7.  [License](#license)
         
 ## [Description](#description)
-    ${responses.description}
+    ${data.description}
 
 ## Installation (#installation)
-    ${responses.installation}
+    ${data.installation}
 
 ## [Usage](#usage)
-    ${responses.usage}
+    ${data.usage}
 
 ## [Contribution](#contribution)
-    If others would like to contribute to this project they may ${responses.contribute} the Repo.
+    If others would like to contribute to this project they may ${data.contribute} the Repo.
 
 ## [Test](#test)
     The testing used for this application
-     ${responses.test}
+     ${data.test}
 
 ## [Questions](questions)
-    If you have any questions, feel free to reach out to me via GitHub: ${responses.github}
+    If you have any questions, feel free to reach out to me via GitHub: ${data.github}
     
-    or you may also send me an email at: ${responses.email}
+    or you may also send me an email at: ${data.email}
 
 ## [license](#license)
-    This application is licensed under: ${responses.license}`;
+    This application is licensed under: ${data.license}`;
+    ${licenseSection}
 }
 
 module.exports = generateMarkdown;
