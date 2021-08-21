@@ -5,30 +5,6 @@ function renderLicenseBadge(license) {
     return `![GitHub License](https://img.shields.io/badge/license-${license}-blue)`;
   }
   return '';
-
-  // let badge = '';
-  // switch (license) {
-  //   case 'Academic.Free.License':
-  //     badge = 'https://img.shields.io/badge/license-Academic.Free.License-blue';
-  //     break;
-  //   case 'Boost.Software.License':
-  //     badge =
-  //       'https://img.shields.io/badge/license-Boost.Software.License-blue';
-  //     break;
-  //   case 'ISC':
-  //     badge = 'https://img.shields.io/badge/license-ISC-blue';
-  //     break;
-  //   case 'MIT':
-  //     badge = 'https://img.shields.io/badge/license-MIT-blue';
-  //     break;
-  //   case 'PostgreSQL.License':
-  //     badge = 'https://img.shields.io/badge/license-PostgreSQL.License-blue';
-  //     break;
-  //   default:
-  //     badge = '';
-  //     break;
-  // }
-  // return badge;
 }
 
 // TODO: Create a function that returns the license link
@@ -68,15 +44,8 @@ function renderLicenseSection(license) {
     return `##  [License](#license)
       This application is licensed under: ${license}
       ${renderLicenseLink(license)}`;
-    return '';
   }
-
-  // let licenseLink = renderLicenseLink(license);
-  // let licenseInfo = '';
-  // if (license != '') {
-  //   licenseInfo = `[![GitHub License](${licenseBadge})${licenseLink}]`;
-  // }
-  // return licenseInfo;
+  return '';
 }
 
 // TODO: Create a function to generate markdown for README
