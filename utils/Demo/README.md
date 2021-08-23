@@ -1,6 +1,6 @@
-# 9.15
+# This is my Awesome Title
 
-  
+  ![GitHub License](https://img.shields.io/badge/license-MIT-blue)
 
 ## Table of Contents
 1.  [Description](#description)
@@ -12,23 +12,26 @@
 7.  [License](#license)
         
 ## [Description](#description)
-    9.15
+    My app does some really cool things that help you be even cooler! 
 
 ## [Installation](#installation)
-    9.15
+    just install node js
 
 ## [Usage](#usage)
-    9.15
+    The purpose is to make you really popular!
 
 ## [Contribution](#contribution)
-    If others would like to contribute to this project they may /.15 the Repo.
+    If others would like to contribute to this project they may they may fork or submit merge requests the Repo.
 
 ## [Test](#test)
     The testing used for this application
-     test 9.15
+     npm test
 
 ## [Questions](questions)
-    If you have any questions, feel free to reach out to me via GitHub: 9.156
+    If you have any questions, feel free to reach out to me via GitHub: michlimones
     
-    or you may also send me an email at: 9.15
+    or you may also send me an email at: michlimones@gmail.com
 
+##  [License](#license)
+      This application is licensed under: MIT
+      https://opensource.org/licenses/MIT
