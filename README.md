@@ -4,10 +4,10 @@
 
 This application takes a user's input to create a professional README for a new project.
 
-##Video Demonstration
+## Video Demonstration
 
 https://drive.google.com/file/d/1QlYoJFwiyanlWS7a0pVmaqETuRZUpQ8w/view
 
-##Visual Example
+## Visual Example
 
-![Gif of working application](./itils/Demo/Project_preview.gif)
+![Gif of working application](./utils/Demo/Project_preview.gif)
